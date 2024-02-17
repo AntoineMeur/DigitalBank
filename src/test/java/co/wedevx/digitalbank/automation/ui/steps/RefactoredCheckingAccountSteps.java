@@ -5,6 +5,7 @@ import co.wedevx.digitalbank.automation.ui.models.BankTransaction;
 import co.wedevx.digitalbank.automation.ui.models.NewCheckingAccountInfo;
 import co.wedevx.digitalbank.automation.ui.pages.LoginPage;
 import co.wedevx.digitalbank.automation.ui.pages.NewCheckingAccountPage;
+import co.wedevx.digitalbank.automation.ui.utils.Driver;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,7 +16,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RefactoredCheckingAccountSteps {
 
-    static WebDriver driver = new FirefoxDriver();
+    WebDriver driver = Driver.getDriver();
     private LoginPage loginPage = new LoginPage(driver);
     private NewCheckingAccountPage newCheckingAccountPage = new NewCheckingAccountPage(driver);
 
@@ -123,4 +123,7 @@ public class RefactoredCheckingAccountSteps {
 
 
     }
+
+
+
 }

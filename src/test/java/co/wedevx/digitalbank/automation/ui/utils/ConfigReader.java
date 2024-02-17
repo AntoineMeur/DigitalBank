@@ -33,4 +33,11 @@ public class ConfigReader {
     public static String getPropertiesValue(String key){
         return properties.getProperty(key);
     }
+
+    public static void main(String[] args) {
+        String key = getPropertiesValue("browser");
+        System.out.println(key);
+
+    }
+
 }
