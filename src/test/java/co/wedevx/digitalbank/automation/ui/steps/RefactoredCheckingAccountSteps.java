@@ -27,17 +27,8 @@ public class RefactoredCheckingAccountSteps {
     private LoginPage loginPage = new LoginPage(driver);
     private NewCheckingAccountPage newCheckingAccountPage = new NewCheckingAccountPage(driver);
 
-    @BeforeAll
-    public static void setUp(){
-        WebDriverManager.chromedriver().setup();
-    }
 
 
-    @Before
-    public void the_user_on_dbank_homepage() {
-        driver.get("https://dbank-qa.wedevx.co/bank/login");
-
-    }
 
     @Given("The user is logged in {string} , {string}")
     public void the_user_is_logged_in(String username, String password) {
@@ -47,10 +38,10 @@ public class RefactoredCheckingAccountSteps {
     @When("the user creates a new checking account with the following data")
     public void the_user_creates_a_new_checking_account_with_the_following_data(List<NewCheckingAccountInfo> checkingAccountInfoList) {
         NewCheckingAccountInfo testDataForCheckingAccount = checkingAccountInfoList.get(0);
-        // user clicks on checking button
+
         WebElement checkingMenu = driver.findElement(By.id("checking-menu"));
         checkingMenu.click();
-        // user clicks on new checking button
+
         WebElement newCheckingMenuItem = driver.findElement(By.id("new-checking-menu-item"));
         newCheckingMenuItem.click();
         newCheckingAccountPage.createNewAccount(testDataForCheckingAccount.getCheckingAccountType(),testDataForCheckingAccount.getAccountOwnership(),
